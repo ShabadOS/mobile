@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import defaultFolderData from '../../defaults/collections.json'
 import Screens from '../../lib/screens'
 import Colours from '../../themes/colours'
 import { px, py } from '../../themes/utils'
@@ -41,7 +42,10 @@ const BottomBar = () => {
   const navigation = useNavigation()
 
   const onSearchPress = () => navigation.navigate( Screens.Search )
-  const onBookmarkPress = () => navigation.navigate( Screens.Bookmarks )
+  const onBookmarkPress = () => navigation.navigate(
+    Screens.Bookmarks,
+    { folderData: defaultFolderData },
+  )
 
   return (
     <SafeAreaView style={styles.root} edges={[ 'bottom', 'left', 'right' ]}>
