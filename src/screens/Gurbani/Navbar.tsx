@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet } from 'react-native'
+import { Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import logo from '../../../assets/images/logo.png'
@@ -29,14 +29,30 @@ const styles = StyleSheet.create( {
  */
 const GurbaniNavbar = () => (
   <Navbar
-    left={<Icon style={styles.headerIcon} name="menu" />}
-    right={<Icon style={styles.headerIcon} name="ios-options-outline" />}
+    left={(
+      <TouchableWithoutFeedback onPress={() => {
+        // navigation.dispatch(
+        //     DrawerActions.toggleDrawer('ghtgh')
+        // )
+      }}
+      >
+        <Icon style={styles.headerIcon} name="menu" />
+      </TouchableWithoutFeedback>
+      )}
+    right={(
+      <TouchableWithoutFeedback onPress={() => {
+        // navigation.openDrawer()
+      }}
+      >
+        <Icon style={styles.headerIcon} name="ios-options-outline" />
+      </TouchableWithoutFeedback>
+      )}
     main={(
       <>
         <Image style={styles.logo} source={logo} />
         <Typography variant="header" style={styles.heading}>Shabad OS</Typography>
       </>
-    )}
+            )}
   />
 )
 
